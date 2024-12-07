@@ -1,0 +1,127 @@
+.homebody{
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 0 20px;
+}
+
+.userinfo{
+    display: flex;
+}
+.userdp{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: black;
+}
+.welcometxt{
+    font-size:12px;
+    color: #00000054;
+}
+.username{
+    font-size:18px;
+    font-weight:500;
+}
+
+.userbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 0 12px;
+}
+.feedtext{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.postbody{
+    width: 100%;
+    min-height: 200px;
+    background-color : #F7EBFF;
+    border-radius: 26px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.pdp{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color : black;
+}
+
+.puserinfo{
+    display: flex;
+}
+.puserbox{
+    margin: 0 0 0 12px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pusername{
+    font-size: 18px;
+    font-weight: 500;
+}
+.ptime{
+    margin-top: -2px;
+    font-size: 13px;
+    color: #00000054;
+}
+
+.posttext{
+    padding-top: 10px;
+}
+.images{
+    margin-top: 15px;
+    min-width: 100%;
+    height: 220px;
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+.useractions{
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+.likecount{
+    margin-left: 5px;
+}
+.uaction{
+    display: flex;
+}
+
+
+.sharebtn{
+    display: flex;
+    padding: 10px 25px 10px 25px;
+    background-color: #00000012;
+    border-radius: 20px;
+}
+.shareicon{
+    margin-top: 4px;
+    padding-right: 10px;
+}
+.sharetext{
+    font-weight: 600;
+}
+
+.createpostbtn{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #000000;
+    border-radius: 50%;
+    color: white;
+    font-size: 32px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+}
