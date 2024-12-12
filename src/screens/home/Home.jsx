@@ -1,9 +1,12 @@
 import "./home.css";
 import Post from "./components/Post";
+import { Link } from 'react-router-dom';
+
 const Home = () => {
   return (
 <>
 <div className="homebody">
+    <Link to={"/profile"}>
     <div className="userinfo">
         <div className="userdp"></div>
         <div className="userbox">
@@ -11,6 +14,7 @@ const Home = () => {
             <div className="username">Sakshi Agarwal</div>
         </div>
     </div>
+    </Link>
     <div className="feedtext">
         Feeds
     </div>
@@ -20,7 +24,8 @@ const Home = () => {
         <Post/>
         <Post/>
     </div>
-    <div className="createpostbtn">+</div>
+    <Link to={"/createpost"}><div className="createpostbtn">+</div></Link>
+    
 </div>
 </>  
 )

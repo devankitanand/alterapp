@@ -1,18 +1,21 @@
 import Post from './components/Post';
 import './myprofile.css';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
+
 const Myprofile = () => {
   return (
     <>
     <div className='myprofilebody'>
         <div className='pimgdiv'>
-            <div className='arrow'><FaArrowLeftLong size={20} color='white'/></div>
+            <Link to={"/home"}><div className='arrow'><FaArrowLeftLong size={20} color='white'/></div></Link>
+            
             <img className='profileimg' src="/img/profilebg.png" alt="profile" />
         </div>
         <div className='pinfo'>
             <div className='pinfocontainer'>
                 <div className='profiledp'></div>
-                <div className='editprofile'>Edit Profile</div>
+                <Link to={"/profile/edit"}><div className='editprofile'>Edit Profile</div></Link>
             </div>
             <div className='namenbiobody'>
                 <div className='profilename'>Sakshi Agarwal</div>

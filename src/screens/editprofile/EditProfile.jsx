@@ -1,11 +1,13 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { MdEdit } from "react-icons/md";
 import './editprofile.css';
+import { Link } from 'react-router-dom';
 const EditProfile = () => {
   return (
     <div>
         <div className='pimgdiv'>
-            <div className='arrow'><FaArrowLeftLong size={20} color='white'/></div>
+            <Link to={"/profile"}><div className='arrow'><FaArrowLeftLong size={20} color='white'/></div></Link>
+            
             <img className='profileimg' src="/img/profilebg.png" alt="profile" />
             <div className="editcover"><MdEdit /></div>
         </div>
@@ -31,7 +33,7 @@ const EditProfile = () => {
             </div>
         </div>
         <div className="flex items-center justify-center">
-            <button type="submit" className="save">Save</button>
+            <button type="submit" className="save">SAVE</button>
         </div>
     </div>
   )

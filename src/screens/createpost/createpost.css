@@ -1,0 +1,78 @@
+.selected{
+    position:relative;
+    width:100%;
+    height:60px;
+    background-color: white;
+    
+}
+.galleryactions{
+    height: 10dvh;
+    background-color: white;
+    
+}
+.allgalleryimgs{
+    height: 50dvh;
+    background-color: black;
+}
+.newpost{
+    position: absolute;
+    left: 60px;
+    top:15px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+.optionselectedselected{
+    margin-right: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 11px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.ringg{
+    
+    width: fit-content;
+    height: fit-content;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: #F5F5F5;
+}
+
+.newpost1{
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+}
+.selectedimg{
+    width: 80%;
+    height: 40dvh;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+}
+.posttextinput{
+    width: 90%;
+    height: 40dvh;
+    outline: none;
+    background-color: #D9D9D99C;
+    padding: 20px 20px;
+    border-radius: 20px;
+
+}
+
+.allgalleryimgs { 
+    height: 50%; 
+    width: 100%; 
+} 
+
+.galleryItem { 
+    display: flex; 
+    justify-content: center;
+    align-items: center; } 
+    .galleryItem img, .galleryItem video 
+    { max-height: 100%; width: auto; }
+
+    .swiper-wrapper{
+        height: 500px;
+    }
