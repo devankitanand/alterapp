@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -64,18 +63,21 @@ const EditProfile = () => {
         let updatedCoverpic = profile.coverpic;
         let updatedDp = profile.photoURL;
 
+        // Upload new cover pic if available
         if (newCoverpic) {
             const coverpicRef = ref(storage, `coverpics/${user.uid}/${newCoverpic.name}`);
             await uploadBytes(coverpicRef, newCoverpic);
             updatedCoverpic = await getDownloadURL(coverpicRef);
         }
 
+        // Upload new dp if available
         if (newDp) {
             const dpRef = ref(storage, `profilepics/${user.uid}/${newDp.name}`);
             await uploadBytes(dpRef, newDp);
             updatedDp = await getDownloadURL(dpRef);
         }
 
+        // Update user document in Firestore
         await setDoc(doc(db, 'user', user.uid), {
             displayName: newName,
             bio: newBio,

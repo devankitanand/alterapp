@@ -1,26 +1,35 @@
 
-
 import "./home.css";
 import Post from "./components/Post";
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from "../../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { GoSignOut } from "react-icons/go";
 
 const Home = () => {
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [profilePic, setProfilePic] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log('Current User:', currentUser);
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (!currentUser) {
+        navigate('/');
+      } else {
+        setUser(currentUser);
+
+        const userDoc = await getDoc(doc(db, 'user', currentUser.uid));
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          setProfilePic(userData.photoURL);
+        }
+      }
     });
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -28,7 +37,8 @@ const Home = () => {
       const querySnapshot = await getDocs(postsQuery);
       const fetchedPosts = querySnapshot.docs.map(doc => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
+        createdAt: doc.data().createdAt.toDate(), // Convert Firestore Timestamp to Date object
       }));
       setPosts(fetchedPosts);
     };
@@ -54,7 +64,7 @@ const Home = () => {
             <Link to={"/profile"}>
               <div className="textinfo">
                 <div className="userdp">
-                  <img src={user.photoURL} className="userdp" alt="dp"></img>
+                  <img src={profilePic || user.photoURL} className="userdp" alt="dp" />
                 </div>
                 <div className="userbox">
                   <div className="welcometxt">Welcome Back</div>
@@ -62,7 +72,7 @@ const Home = () => {
                 </div>
               </div>
             </Link>
-            <div onClick={logout} className="mt-4"><GoSignOut size={25}/></div>
+            <div onClick={logout} className="mt-4"><GoSignOut size={25} /></div>
           </div>
         ) : (
           <p>Loading...</p>
@@ -77,17 +87,17 @@ const Home = () => {
               id={post.id} 
               name={post.Name}
               dp={post.dpurl} 
-              timesago={post.createdAt ? post.createdAt.toDate().toDateString() : 'Unknown'}
+              timesago={post.createdAt} // Pass the Date object
               posttext={post.text}
               images={post.mediaurl}
-              likes={post.likes}
+              likes={post.likes} // Pass the likes to the Post component
             />
           ))}
         </div>
         <Link to={"/createpost"}><div className="createpostbtn">+</div></Link>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Home;
