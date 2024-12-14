@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './login.css';
 import { FcGoogle } from "react-icons/fc";
 import { auth, googleprovider, db } from '../../firebase';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup , signInWithRedirect} from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
 
   const signinwithgoogle = async () => {
     try {
-      const result = await signInWithPopup(auth, googleprovider);
+      const result = await signInWithRedirect(auth, googleprovider);
       const user = result.user;
       // Check if user document already exists
       const userDocRef = doc(db, 'user', user.uid);
