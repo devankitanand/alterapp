@@ -10,10 +10,7 @@
     background-color: white;
     
 }
-.allgalleryimgs{
-    height: 50dvh;
-    background-color: black;
-}
+
 .newpost{
     position: absolute;
     left: 60px;
@@ -61,18 +58,13 @@
 
 }
 
+.nextposttextinput{
+    height: 25dvh;
+}
+
 .allgalleryimgs { 
-    height: 50%; 
-    width: 100%; 
-} 
-
-.galleryItem { 
-    display: flex; 
+    display:flex;
     justify-content: center;
-    align-items: center; } 
-    .galleryItem img, .galleryItem video 
-    { max-height: 100%; width: auto; }
-
-    .swiper-wrapper{
-        height: 500px;
-    }
+    height: 100%; 
+    width: 100%; } 
+.galleryItem { display: flex; justify-content: center; align-items: center; height: 100%; /* Ensure it takes the full height */ } .media { max-width: 100%; max-height: 100%; object-fit: cover; /* Ensure the media fits properly */ }

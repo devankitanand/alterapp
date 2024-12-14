@@ -1,20 +1,23 @@
 import { GiHearts } from "react-icons/gi";
-const Post = () => {
+const Post = (props) => {
   return (
     <>
     <div className='profilepostbody' style={{
-        backgroundImage: "url('/img/postimg.png')", 
+        backgroundImage: `url(${props.background})`, 
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         backgroundRepeat: 'no-repeat',
     }}>
         <div className="overlaypost">
-            <div className="postcount">1/2</div>
+            <div className="flex justify-end">
+                <div className="postcount">1/{props.imgcount}</div>
+            </div>
+            
             <div>
-                <div className="text-white">Design</div>
+                <div className="text-white">{props.title}</div>
                 <div className="profilepostlike">
                     <GiHearts color="white"/>
-                    <div className="ml-1 text-white">67</div>
+                    <div className="ml-1 text-white">{props.like}</div>
                 </div>
             </div>
         </div>
