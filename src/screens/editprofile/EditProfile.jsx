@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { MdEdit } from "react-icons/md";
-import { db, auth, storage } from '../../firebase'; // Ensure Firestore, Auth, and Storage are correctly imported
+import { db, auth, storage } from '../../firebase'; 
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { onAuthStateChanged } from 'firebase/auth';
